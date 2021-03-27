@@ -1,3 +1,4 @@
+var wrap = document.body.querySelector(".wrap");
 var warriors = [
   {
     name:"Bob",
@@ -47,3 +48,24 @@ var warriors = [
     warrior:false
   }
 ]
+
+for(var i=0; i<warriors.length; i++){
+  if(warriors[i].health>=10&&warriors[i].damage>=2&&warriors[i].warrior==true){
+    var ele = document.createElement("div");
+    var eleName = document.createElement("h1");
+    var eleHealth = document.createElement("h4");
+    var eleDamage = document.createElement("h4");
+    
+    if(warriors[i].name.includes('a')){
+      ele.style.color="red";
+    }
+    
+    eleName.innerHTML=warriors[i].name
+    eleHealth.innerHTML= "Health: "+warriors[i].health;
+    eleDamage.innerHTML= "Damage: "+warriors[i].damage;
+    ele.appendChild(eleName);
+    ele.appendChild(eleHealth);
+    ele.appendChild(eleDamage);
+    wrap.appendChild(ele);
+  }
+}
